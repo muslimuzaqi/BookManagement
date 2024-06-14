@@ -1,0 +1,113 @@
+﻿@model BookDto
+
+<div class="row">
+    <div class="col-md-8 mx-auto rounded border p-3">
+        <h2 class="text-center mb-5">Edit Book</h2>
+
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Id</label>
+                <div class="col-sm-8">
+                    <input class="form-control-plaintext" readonly value="@ViewData["BookId"]" />
+                </div>
+            </div>
+
+            @* Title *@
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Title</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Title" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+
+            @* Description *@
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Description</label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" asp-for="Description"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+
+            @* Author *@
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Author</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Author" />
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+            </div>
+
+            @* Brand *@
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Brand</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Brand" />
+                    <span asp-validation-for="Brand" class="text-danger"></span>
+                </div>
+            </div>
+
+            @* Category *@
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Category</label>
+                <div class="col-sm-8">
+                    <select class="form-select" asp-for="Category">
+                        <option value="Other">Other</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Biography">Biography</option>
+                        <option value="History">History</option>
+                        <option value="Psychology">Psychology</option>
+                    </select>
+                </div>
+            </div>
+
+            @* Price *@
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Price</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Price" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="offset-sm-4 col-sm-8">
+                    <img src="/books/@ViewData["ImageFileName"]" width="150" />
+                </div>
+            </div>
+
+            @* ImageFileName *@
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Image</label>
+                <div class="col-sm-4">
+                    <input class="form-control" asp-for="ImageFileName" />
+                    <span asp-validation-for="ImageFileName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Created At</label>
+                <div class="col-sm-8">
+                    <input class="form-control-plaintext" readonly value="ViewData[" CreatedAt"]" />
+                </div>
+            </div>
+
+
+            @* Cancel and Sumbit BUTTONS*@
+            <div class="row">
+                <div class="offset-sm-4 col-sm-4 d-grid">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="col-sm-4 d-grid">
+                    <a class="btn btn-outline-primary" asp-controller="Books" asp-action="Index" role="button">
+                        Cancel
+                    </a>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
